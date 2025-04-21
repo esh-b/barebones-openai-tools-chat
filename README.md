@@ -4,12 +4,12 @@ This is a barebones Python demo that showcases how to build a simple conversatio
 > 🔧 Just Python + OpenAI API — nothing more.
 
 This example uses basic math tools (`add`, `subtract`, `multiply`, `divide`) to demonstrate the key components of tool calling:
-- Defining tools
+- Defining tools as functions
 - Detecting when the model wants to use them
 - Executing the function with provided arguments
 - Feeding the result back into the conversation for further reasoning
 
-This code is intended as a simple, functional starting point. It's minimal by design and should be easy to plug your own tools or logic.
+This code is intended as a **simple, functional starting point**, and easy to plug your own tools or logic.
 
 
 ## Getting started
@@ -19,19 +19,19 @@ This code is intended as a simple, functional starting point. It's minimal by de
 ## A Few Practical Details
 1. Auto-generating Tool Definitions from Python Functions:
 
-OpenAI's tool calling requires every tool to be defined in a JSON schema — specifying parameters, types, and descriptions. Manually writing these schemas becomes tedious, especially if you're working with multiple or complex functions.
+	OpenAI's tool calling requires every tool to be defined in a JSON schema — specifying parameters, types, and descriptions. Manually writing these schemas becomes tedious, especially if you're working with multiple or complex functions.
 
-To keep things simple, this project includes a helper function: func_to_json (source: [funkagent](https://github.com/aurelio-labs/funkagent/blob/main/funkagent/parser.py)). It uses Python type hints and docstrings to auto-generate valid tool definitions — reducing boilerplate and making it easy to scale.
+	To keep things simple, this project includes a helper function: func_to_json (source: [funkagent](https://github.com/aurelio-labs/funkagent/blob/main/funkagent/parser.py)). It uses Python type hints and docstrings to auto-generate valid tool definitions — reducing boilerplate and making it easy to scale.
 
-There are other tools like Lunary's [tool call generator](https://lunary.ai/tool-calls-generator) as well though I haven't tested their support for more complex use cases.
+	There are other tools like Lunary's [tool call generator](https://lunary.ai/tool-calls-generator) as well though I haven't tested their support for more complex use cases.
 
 2. Parallel Tool Calling (Optional)
 
-By default, the script enables parallel tool calling, allowing the model to call multiple tools in a single turn if needed.
-If you'd rather force the model to go step-by-step — for example, solving the expression "(555\*222)-121" in sequence — you can disable this by setting:
-```python
-response = client.chat.completions.create(
-    ...
-    parallel_tool_calls=False
-)
-```
+	By default, the script enables parallel tool calling, allowing the model to call multiple tools in a single turn if needed.
+	If you'd rather force the model to go step-by-step — for example, solving the expression "(555\*222)-121" in sequence — you can disable this by setting:
+	```python
+	response = client.chat.completions.create(
+	    ...
+	    parallel_tool_calls=False
+	)
+	```
