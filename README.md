@@ -1,2 +1,2 @@
 # barebones-openai-tools-chat
-A minimal Python chat script demonstrating OpenAI's API tool calling feature using custom math functions -- no LangChain, no fluff, just the core logic. Perfect as a barebones example to understand how agent-style behavior works.
+This is a barebones Python demo that showcases how to build a simple conversational agent (in terminal) using OpenAI's API with tool calling. The example includes basic math tools (`add`, `subtract`, `multiply` and `divide`) and focuses on clarity and simplicity — without relying on external frameworks or abstractions, just the core logic.
