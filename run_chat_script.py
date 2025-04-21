@@ -53,7 +53,8 @@ if __name__ == '__main__':
                 model=OPENAI_MODEL,
                 messages=chat_history,
                 tools=available_tools,
-                tool_choice="auto"
+                tool_choice="auto",
+                parallel_tool_calls=False,
             )
             chat_history.append(response.choices[0].message.model_dump())
 
@@ -69,4 +70,5 @@ if __name__ == '__main__':
                 print('>>>> ', chat_history[-1]['content'])
                 break
 
-    print('The entire chat history (with tool call messages):', chat_history)
+    print('-------------------------------------------------')
+    print('The entire chat history (with tool call messages):', json.dumps(chat_history, indent=4))

@@ -12,9 +12,14 @@ This example uses basic math tools (`add`, `subtract`, `multiply`, `divide`) to 
 This code is intended as a **simple, functional starting point**, and easy to plug your own tools or logic.
 
 
+## Simple demo
+![til](./resources/demo.gif)
+
+
 ## Getting started
 1. Install requirements using the command: `pip install -r requirements.txt`
-2. Run the command: `python run_chat_script.py`.
+1. Make sure the OpenAI API key is in the environment. You can do `export OPENAI_API_KEY=<YOUR_KEY>` from the terminal.
+1. Then, run the command: `python run_chat_script.py`.
 
 ## A Few Practical Details
 1. Auto-generating Tool Definitions from Python Functions:
@@ -27,11 +32,10 @@ This code is intended as a **simple, functional starting point**, and easy to pl
 
 2. Parallel Tool Calling (Optional)
 
-	By default, the script enables parallel tool calling, allowing the model to call multiple tools in a single turn if needed.
-	If you'd rather force the model to go step-by-step — for example, solving the expression "(555\*222)-121" in sequence — you can disable this by setting:
+	By default, the script enables parallel tool calling, allowing the model to call multiple tools in a single turn if needed. However, in this script, it's disabled to let the model solve math expressions step by step — for example, evaluating "555 * 222 - 121" in sequence. To enable it, you can set `parallel_tool_calls` to `True`.
 	```python
 	response = client.chat.completions.create(
 	    ...
-	    parallel_tool_calls=False
+	    parallel_tool_calls=True
 	)
 	```
