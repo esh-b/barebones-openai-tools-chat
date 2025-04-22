@@ -1,4 +1,4 @@
-# barebones-openai-tools-chat
+# Minimal-openai-tools-chat
 This is a barebones Python demo that showcases how to build a simple conversational agent (in terminal) using OpenAI's API with tool calling. The focus is on the core logic, clarity and simplicity — no external frameworks or complex abstractions.
 
 > 🔧 Just Python + OpenAI API — nothing more.
